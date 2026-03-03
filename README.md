@@ -1,3 +1,6 @@
+## [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3)
+
+BGE M3 is a text embedding model released by **Beijing Academy of Artificial Intelligence** in 2024. It supports more than `100` languages. 
 
 |`max_position_embeddings`|`hidden_size`|`num_hidden_layers`
 |-:|-:|-:|
