@@ -1,0 +1,4 @@
+BGE M3/Data/*
+BGE M3/Project/DerivedData/formAttributes.json
+BGE M3/Project/DerivedData/methodAttributes.json
+BGE M3/userPreferences.*
