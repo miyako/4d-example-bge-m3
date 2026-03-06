@@ -6,6 +6,7 @@ BGE M3 is a text embedding model released by **Beijing Academy of Artificial Int
 |-:|-:|-:|-:|
 |`8192`|`1024`|`24`|`cls`
 
+> [!TIP]
 > `llama.cpp` seems to work better with `mean` pooling.
 
 ```4d
