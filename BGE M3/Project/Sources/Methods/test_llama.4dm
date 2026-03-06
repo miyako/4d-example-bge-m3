@@ -10,6 +10,6 @@ $en:=$AIClient.embeddings.create("How do I reset my password?").embedding.embedd
 $fr:=$AIClient.embeddings.create("Comment réinitialiser mon mot de passe?").embedding.embedding
 
 $cosineSimilarity:=$fr.cosineSimilarity($en)
-//0.9284210785244
+//0.9277435911367
 
 ALERT:C41([$cosineSimilarity].join())
