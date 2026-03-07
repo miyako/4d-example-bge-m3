@@ -12,10 +12,6 @@
 			"github": "miyako/event",
 			"version": "latest"
 		},
-		"ctranslate2": {
-			"github": "miyako/ctranslate2",
-			"version": "latest"
-		},
 		"4D AIKit": {
 			"github": "4d/4D-AIKit",
 			"version": "4d"
