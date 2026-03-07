@@ -2,9 +2,12 @@
 
 BGE M3 is a text embedding model released by **Beijing Academy of Artificial Intelligence** in 2024. It supports more than `100` languages. 
 
-|`max_position_embeddings`|`hidden_size`|`num_hidden_layers`
-|-:|-:|-:|
-|`8192`|`1024`|`24`
+|`max_position_embeddings`|`hidden_size`|`num_hidden_layers`|`pooling`
+|-:|-:|-:|-:|
+|`8192`|`1024`|`24`|`cls`
+
+> [!TIP]
+> `llama.cpp` seems to work better with `mean` pooling.
 
 ```4d
 var $en; $fr : 4D.Vector
@@ -26,4 +29,4 @@ ALERT([$cosineSimilarity].join())
 
 |llama.cpp `Q8_0`|ONNX Runtime `Int8`
 |-|-|
-|`0.92774359113669`|`0.86980522265202`|
+|`0.84130115104232`|`0.70416629505377`|
