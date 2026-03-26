@@ -6,9 +6,6 @@ BGE M3 is a text embedding model released by **Beijing Academy of Artificial Int
 |-:|-:|-:|-:|
 |`8192`|`1024`|`24`|`mean`
 
-> [!TIP]
-> `llama.cpp` seems to work better with `mean` pooling.
-
 ```4d
 var $en; $fr : 4D.Vector
 var $AIClient : cs.AIKit.OpenAI
@@ -29,4 +26,4 @@ ALERT([$cosineSimilarity].join())
 
 |llama.cpp `Q8_0`|ONNX Runtime `Int8`|CTranslate2 `Int8`
 |-|-|-|
-|`0.84130115104232`|`0.83890113660061`||
+|`0.84130115104232`|`0.8472923182463`|`0.84027882755443`|
