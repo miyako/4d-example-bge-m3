@@ -27,6 +27,6 @@ ALERT([$cosineSimilarity].join())
 
 ##### Cosine similarity from example code above:
 
-|llama.cpp `Q8_0`|ONNX Runtime `Int8`
-|-|-|
-|`0.84130115104232`|`0.83890113660061`|
+|llama.cpp `Q8_0`|ONNX Runtime `Int8`|CTranslate2 `Int8`
+|-|-|-|
+|`0.84130115104232`|`0.83890113660061`||
