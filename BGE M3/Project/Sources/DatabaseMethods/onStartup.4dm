@@ -86,7 +86,7 @@ use int8 quantisation
 
 $homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".ONNX")
 $port:=8081
-$options:={pooling: "cls"}
+$options:={pooling: "mean"}
 
 $folder:=$homeFolder.folder("bge-m3")
 $path:="bge-m3-onnx-int8"
@@ -96,3 +96,16 @@ $huggingface:=cs:C1710.event.huggingface.new($folder; $URL; $path; "embedding"; 
 $huggingfaces:=cs:C1710.event.huggingfaces.new([$huggingface])
 
 $ONNX:=cs:C1710.ONNX.ONNX.new($port; $huggingfaces; $homeFolder; $options; $event)
+
+$homeFolder:=Folder:C1567(fk home folder:K87:24).folder(".CTranslate2")
+$port:=8082
+$options:={pooling: "mean"}
+
+$folder:=$homeFolder.folder("bge-m3")
+$path:="bge-m3-ct2-int8"
+$URL:="keisuke-miyako/bge-m3-ct2-int8"
+
+$huggingface:=cs:C1710.event.huggingface.new($folder; $URL; $path; "embedding")
+$huggingfaces:=cs:C1710.event.huggingfaces.new([$huggingface])
+
+$CTranslate2:=cs:C1710.CTranslate2.CTranslate2.new($port; $huggingfaces; $homeFolder; $options; $event)
