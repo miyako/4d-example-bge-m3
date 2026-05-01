@@ -7,23 +7,22 @@ BGE M3 is a text embedding model released by **Beijing Academy of Artificial Int
 |`8192`|`1024`|`24`|`cls`
 
 ```4d
-var $en; $fr : 4D.Vector
 var $AIClient : cs.AIKit.OpenAI
-var $cosineSimilarity : Real
 $AIClient:=cs.AIKit.OpenAI.new()
 
-$AIClient.baseURL:="http://127.0.0.1:8080/v1"  
+$AIClient.baseURL:="http://127.0.0.1:8080/v1"  // llama-server
 
-$en:=$AIClient.embeddings.create("How do I reset my password?").embedding.embedding
-$fr:=$AIClient.embeddings.create("Comment réinitialiser mon mot de passe?").embedding.embedding
+$query:="4D Serverが使用するTCPポート番号を教えて?"
 
-$cosineSimilarity:=$en.cosineSimilarity($fr)
+var $batch : cs.AIKit.OpenAIEmbeddingsResult
+$batch:=$AIClient.embeddings.create($query)
 
-ALERT([$cosineSimilarity].join())
+If ($batch.success)
+	$vector:=$batch.embedding.embedding
+	var $comparison:={vector: $vector; metric: mk cosine; threshold: 0.7}
+	var $results:=ds.Documents.query("Embeddings > :1"; $comparison)
+	If ($results.length#0)
+		ALERT($results.first().Text)
+	End if 
+End if 
 ```
-
-##### Cosine similarity from example code above:
-
-|llama.cpp `Q8_0`|ONNX Runtime `Int8`|CTranslate2 `Int8`
-|-|-|-|
-|`0.9284370916995`|`0.91191594622107`|`0.92845922359185`|
