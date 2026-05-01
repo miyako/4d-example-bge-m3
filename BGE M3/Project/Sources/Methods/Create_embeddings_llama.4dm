@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"invisible":true}
 var $documents : cs:C1710.DocumentsSelection
 $documents:=ds:C1482.Documents.all()
 
